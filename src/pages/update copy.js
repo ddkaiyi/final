@@ -10,9 +10,6 @@ import { supabase } from '../client'
 export const Update=()=>{
     const {register, handleSubmit, errors}=useForm();
     const [posts, setPosts] = useState([]);
-    const [title, setTitle] = useState();
-    const [content, setContent] = useState();
-    const [url, setUrl] = useState();
     const [errores, setErrores] = useState([]);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
@@ -24,14 +21,12 @@ export const Update=()=>{
    
      const { data, error } = await supabase
      .from('Post')
-     .update({ Title:title,Content:content,URL:url})
+     .update({ Title:data1.title,Content:data1.content,URL:data1.url })
      .eq('id', id)
-     console.log(title)
-     console.log(url)
-     console.log(content)
+     console.log(data)
      setErrores(error)
- 
-     navigate(`/detail/${id}/${username}`)
+     setIsButtonClicked(true);
+    
           }
 
   
@@ -69,36 +64,28 @@ export const Update=()=>{
 
 return(
     <div>
-     
+        <h1>Register</h1>
         <div className='Login' >
-        <div className='head'>
-          <h1 className='box box1'>Blog</h1>
-          <text  className='btn1'onClick={()=>{navigate(`/post/${username}`)}}>Home</text>
-          <p className='box box3'>User:{username}</p>
-
-          </div>
-           
-      
-          <h1>Update</h1>
+            <p>{username}</p>
+            {/* <button onClick={navigate(`/detail/${id}/${username}`)}>go back</button> */}
+          
             <form onSubmit={handleSubmit(update)} >
                     <label htmlFor="Title">Title:</label> <br />
-                    <input type="text" id="title" name="title"  defaultValue={posts?.[0]?.Title} onChange={(e)=>{setTitle(e.target.value)}}  /><br />
+                    <input type="text" id="title" name="title"  defaultValue={posts?.[0]?.Title}  {...register('title')}/><br />
                     <br/>
     
                     <label htmlFor="Content">Content:</label><br />
-                    <input type="text" id="content" name="content" defaultValue={posts?.[0]?.Content} onChange={(e)=>{setContent(e.target.value)}}/><br />
+                    <input type="text" id="content" name="content" defaultValue={posts?.[0]?.Content} {...register('content')}/><br />
                     <br/>
 
                     <label htmlFor="URL">URL:</label><br />
-                    <input type="text" id="url" name="url" defaultValue={posts?.[0]?.URL} onChange={(e)=>{setUrl(e.target.value)} }/><br />
+                    <input type="text" id="url" name="url" defaultValue={posts?.[0]?.URL}{...register('url')}/><br />
                     <br/>·
-             
-                  
+ 
                    <p style={{color:"red"}}>{errores?.message?"error":""}</p> 
                  
                 
                     <input type="submit" value="Submit" />
-                    <button onClick={()=>{navigate(`/detail/${id}/${username}`)}}>go back</button>
                   
       </form>
      

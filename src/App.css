@@ -90,3 +90,101 @@ height: 20px;
   margin-left: 20px;
   margin-top: 20px;
 }
+
+.head{
+  height: 60px;
+  width: 100%;
+  background-color:darkgreen;
+ text-align: center;
+ 
+}
+.box{
+  display: inline-block;
+
+  margin: 10px;
+}
+.box1 {
+  float:left ;
+}
+
+.box2{
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+
+}
+.box3{
+ float: right;
+ text-align: center; 
+ float: right;
+ font-size: 20px; 
+ padding: 10px 20px; /* 内边距 */
+}
+.btn1{
+  background-color: #4CAF50; /* 背景颜色 */
+  border: none; /* 边框 */
+  color: white; /* 文本颜色 */
+  padding: 10px 20px; /* 内边距 */
+  text-align: center; /* 文本居中 */
+  text-decoration: none; /* 文本装饰 */
+  display: inline-block; /* 显示为块级元素 */
+  font-size: 16px; /* 字号大小 */
+  margin: 10px; /* 外边距 */
+  cursor: pointer; /* 鼠标光标 */
+  border-radius: 5px; /* 圆角 */
+  
+  
+}
+.middle{
+  color: black;
+margin-left: -400px;
+}
+.post{
+  width: 800px;
+  height: 150px;
+background-color: aquamarine;
+  margin: 60px;
+  margin-left: 700px;
+
+  list-style: none; /* 去除圆点标记 */
+  display: flex; /* 启用 flexbox 布局 */
+  flex-direction: row; /* 列表项竖向向左排列 */
+  text-align: left;
+}
+.post li{
+  display: block; /* 使用 flexbox 布局 */
+
+  
+}
+.post2{
+  width: 900px;
+  height: 600px;
+  background-color: aliceblue;
+  margin-left: 200px;
+  color: black;
+  margin-top: 20px;
+  padding-top: 20px;
+  
+}
+.post2 li{
+  list-style: none;
+  text-align: left;
+  margin-top: 20px;
+ 
+  
+}
+.post2 img{
+width: 300px;
+}
+.below{
+  width: 800px;
+  height: 100px;
+  background-color: burlywood;
+  margin-left: 50px;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+}
+#comment{
+  left: 80px;
+}
